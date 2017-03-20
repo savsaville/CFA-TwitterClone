@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :comments
+
   resources :posts do
+    member do
+      resources :comments
+    end
     member do
       get 'toggle_like', to: 'posts#toggle_like'
     end

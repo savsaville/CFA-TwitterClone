@@ -5,9 +5,11 @@ class User < ApplicationRecord
 
 
   has_many :posts
+  has_many :comments
   acts_as_liker
   acts_as_follower
   acts_as_followable
+
 
 
   devise :database_authenticatable, :registerable,

@@ -10,8 +10,20 @@
   <%= @post.content %>
 </p>
 
+
 <%= link_to @follow_status, toggle_follow_post_path(user_id: @post.user_id), class: @follow_status %>
 <%= link_to @like_status, toggle_like_post_url(post_id: @post), class: @like_status %>
 
+<%= render 'comments/form', comment: @comment %>
+
 <!-- <%= link_to 'Edit', edit_post_path(@post) %> | -->
 <%= link_to 'Back', posts_path %>
+
+
+
+<p> Previous Comments</p>
+<!-- <%= @comments.inspect %> -->
+  <% @comments.each do |comment| %>
+<p>  <%= comment.user %> </p>
+<p>  <%= comment.content %> </p>
+ <% end %>
